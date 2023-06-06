@@ -1,0 +1,38 @@
+version: '3.4'
+
+#services:
+#  portfolio:
+#    image: ${DOCKER_REGISTRY-}portfolio
+#    build:
+#      context: .
+#      dockerfile: Portfolio/Dockerfile
+
+networks:
+    portfolio-dev:
+        driver: bridge
+services:
+    portfolio:
+        container_name: portfolio
+        build:
+            context: .
+            dockerfile: Portfolio/Dockerfile
+        ports:
+            - "80:80"
+        networks:
+            - portfolio-dev
+        depends_on:
+            - sql-data
+    sql-data:
+        container_name: sqlserverportfolio
+        image: mcr.microsoft.com/mssql/server:latest
+        environment:
+            - ACCEPT_EULA=Y
+            - MSSQL_SA_PASSWORD=s2qxcBb@1
+        ports:
+            - "5434:1433"
+        networks:
+            - portfolio-dev
+        volumes:
+            - sqldata:/var/lib/sqldata/data
+volumes:
+    sqldata:

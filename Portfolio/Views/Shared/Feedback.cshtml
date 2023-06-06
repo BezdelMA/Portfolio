@@ -1,0 +1,51 @@
+﻿@model Portfolio.Data.Models.FeedbackModel
+
+<div class="feedback" onmousedown="return false">
+	<div class="feedback__wrapper">
+		<div class="stars">
+			@{
+				for(var i = 0; i < Model.StarsCount; i++)
+				{
+					<img src="~/img/star_fill.svg" alt="">
+				}
+
+				if(Model.StarsCount < 5)
+				{
+					var delta = 5 - Model.StarsCount;
+
+					for(var i = delta; i > 0; i--)
+					{
+						<img src="~/img/star_outline.png" alt="">
+					}
+				}
+			}
+		</div>
+		<div class="feedback__text">@Model.FeedbackText</div>
+		<div class="user">
+			<div class="user__photo">
+				@{
+					if(Model.PathImg != null)
+					{
+						<img src="@Model.PathImg" alt="Avatar">
+					}
+
+					else
+					{
+						<img src="~/img/users/user1.png" alt="Avatar">
+					}
+				}
+				
+			</div>
+			<div class="user__info">
+				<p class="p20 user__name">@Model.Name</p>
+				<p class="service__order">@Model.OrderType</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>БЕЗДЕЛЬ МИХАИЛ | ПРОГРАММИСТ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
+</head>
+
+<body>
+            @RenderBody()
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="logo__footer">Михаил Бездель<br>программист</p>
+                <div class="footer__social__link">
+                    <a href="https://t.me/BezdelMA" target="_blank"><img src="~/img/footer/telegram.svg" alt=""></a>
+                    <a href="https://wa.me/79099619608?text=" target="_blank"><img src="~/img/footer/whatsApp.svg" alt=""></a>
+                    <a href="https://vk.com/bezmih" target="_blank"><img src="~/img/footer/vk.svg" alt=""></a>
+                    <a href="https://www.instagram.com/bezdelma" target="_blank"><img src="~/img/footer/instagram.svg" alt=""></a>
+                </div>
+                <p>Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-3.7.0.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.matchHeight-min.js" asp-append-version="true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
